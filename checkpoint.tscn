@@ -1,0 +1,25 @@
+[gd_scene format=3 uid="uid://cg0jveohgfiww"]
+
+[ext_resource type="Script" uid="uid://j3f3mu2bt6rb" path="res://checkpoint.gd" id="1_luqgl"]
+[ext_resource type="PackedScene" uid="uid://ovxgd81ngd0" path="res://MrAlpagaasRock.glb" id="2_r6hke"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_tnhlw"]
+size = Vector3(1.8447266, 0.4951172, 2.0354004)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_r6hke"]
+size = Vector3(1.9611816, 0.2557373, 1.8278809)
+
+[node name="Checkpoint" type="Area3D" unique_id=1576822084]
+script = ExtResource("1_luqgl")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=2100297333]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.26696777, 0)
+shape = SubResource("BoxShape3D_tnhlw")
+
+[node name="MrAlpagaasRock" parent="." unique_id=220990121 instance=ExtResource("2_r6hke")]
+
+[node name="StaticBody3D" type="StaticBody3D" parent="." unique_id=1986144021]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" unique_id=1557951944]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.14447021, 0)
+shape = SubResource("BoxShape3D_r6hke")

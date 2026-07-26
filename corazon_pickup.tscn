@@ -1,0 +1,17 @@
+[gd_scene format=3 uid="uid://5jr7pidjmla7"]
+
+[ext_resource type="Script" uid="uid://osm3djndvvoj" path="res://corazon_pickup.gd" id="1_fwilg"]
+[ext_resource type="PackedScene" uid="uid://bh67kaexfc47h" path="res://heart.blend" id="1_i7k4h"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_g3exg"]
+radius = 0.2331543
+height = 0.4663086
+
+[node name="CorazonPickup" type="Area3D" unique_id=944894550]
+script = ExtResource("1_fwilg")
+
+[node name="heart" parent="." unique_id=1901516244 instance=ExtResource("1_i7k4h")]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1814709213]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.26031494, 0)
+shape = SubResource("CapsuleShape3D_g3exg")

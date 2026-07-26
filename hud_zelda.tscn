@@ -1,0 +1,36 @@
+[gd_scene format=3 uid="uid://dakxl2dw6gonl"]
+
+[ext_resource type="Script" uid="uid://cwwfrlmmx25mo" path="res://hud_zelda.gd" id="1_1f1la"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7vt2p"]
+bg_color = Color(0, 0, 0, 1)
+corner_radius_top_left = 15
+corner_radius_top_right = 15
+corner_radius_bottom_right = 15
+corner_radius_bottom_left = 15
+corner_detail = 10
+expand_margin_left = 10.0
+expand_margin_top = 10.0
+expand_margin_right = 10.0
+expand_margin_bottom = 10.0
+
+[node name="HUD_Zelda" type="CanvasLayer" unique_id=1789134384]
+script = ExtResource("1_1f1la")
+
+[node name="FondoHUD" type="PanelContainer" parent="." unique_id=969388354]
+offset_top = -1.0
+offset_right = 84.0
+offset_bottom = 79.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_7vt2p")
+
+[node name="HUD_Global" type="HBoxContainer" parent="FondoHUD" unique_id=190184778]
+custom_minimum_size = Vector2(80, 80)
+layout_mode = 2
+
+[node name="CaraAlpargatas" type="ColorRect" parent="FondoHUD/HUD_Global" unique_id=1224061866]
+custom_minimum_size = Vector2(80, 80)
+layout_mode = 2
+
+[node name="LabelCorazones" type="Label" parent="FondoHUD/HUD_Global" unique_id=1874695242]
+layout_mode = 2
+theme_override_font_sizes/font_size = 40
