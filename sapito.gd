@@ -17,7 +17,7 @@ var target_player: Node3D = null
 # --- NUEVAS VARIABLES DE LOOT ---
 @export_category("Loot y Drops")
 @export var escena_corazon: PackedScene
-@export_range(0.0, 1.0) var probabilidad_drop: float = 1.0
+@export_range(0.0, 1.0) var probabilidad_drop: float = 0.3
 
 # Dirección de movimiento (Iniciamos en Z positivo porque así lo exportó Alejandro)
 var move_dir: Vector3 = Vector3.BACK 
