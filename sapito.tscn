@@ -1,0 +1,68 @@
+[gd_scene format=3 uid="uid://bjbecdsx553wy"]
+
+[ext_resource type="Script" uid="uid://bt8e6pvm442rw" path="res://sapito.gd" id="1_igjo4"]
+[ext_resource type="PackedScene" uid="uid://5jr7pidjmla7" path="res://corazon_pickup.tscn" id="2_4n0qa"]
+[ext_resource type="PackedScene" uid="uid://bvti6tiq63swl" path="res://sapito.blend" id="2_i250x"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_4n0qa"]
+radius = 0.44224548
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_sh625"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_igjo4"]
+radius = 0.453125
+height = 0.94140625
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_igjo4"]
+size = Vector3(0.6208496, 0.25100708, 0.73535156)
+
+[node name="sapito" type="CharacterBody3D" unique_id=673781796 groups=["Enemigo"]]
+script = ExtResource("1_igjo4")
+escena_corazon = ExtResource("2_4n0qa")
+
+[node name="sapito" parent="." unique_id=780052408 instance=ExtResource("2_i250x")]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, 0, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=10489346]
+transform = Transform3D(0.8, 0, 0, 0, 0.8, 0, 0, 0, 0.8, 0, 0.48899478, 0)
+shape = SubResource("SphereShape3D_4n0qa")
+
+[node name="SensorPiso" type="RayCast3D" parent="." unique_id=319678854]
+transform = Transform3D(1, 0, 0, 0, -0.07149746, 0.99744076, 0, -0.99744076, -0.07149746, 0, 0.46792293, 0.3995152)
+target_position = Vector3(0, -2, -1.5)
+
+[node name="SensorPared" type="RayCast3D" parent="." unique_id=1295335718]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.424834, 0)
+visible = false
+target_position = Vector3(0, 0, 2)
+
+[node name="ZonaVision" type="Area3D" parent="." unique_id=53787081]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.3099842, 0)
+visible = false
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="ZonaVision" unique_id=222261280]
+transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 10, 0, 0, 0)
+visible = false
+shape = SubResource("SphereShape3D_sh625")
+
+[node name="HitboxDaño" type="Area3D" parent="." unique_id=1231466509]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.33052015, 0)
+visible = false
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="HitboxDaño" unique_id=943452663]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.016174316, -0.0061950684, 0.033496857)
+shape = SubResource("CapsuleShape3D_igjo4")
+
+[node name="HitboxCabeza" type="Area3D" parent="." unique_id=1711731006]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.6419234, 0)
+visible = false
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="HitboxCabeza" unique_id=131757597]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0020446777, 0.24907482, -0.019795567)
+shape = SubResource("BoxShape3D_igjo4")
+
+[node name="DecisionTimer" type="Timer" parent="." unique_id=216310368]
+autostart = true
+
+[connection signal="body_entered" from="ZonaVision" to="." method="_on_zona_vision_body_entered"]
+[connection signal="body_exited" from="ZonaVision" to="." method="_on_zona_vision_body_exited"]

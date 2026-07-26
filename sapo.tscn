@@ -1,0 +1,28 @@
+[gd_scene format=3 uid="uid://bcs2g8ukfr0hr"]
+
+[ext_resource type="PackedScene" uid="uid://bvti6tiq63swl" path="res://sapito.blend" id="1_o41su"]
+[ext_resource type="Script" uid="uid://bt8e6pvm442rw" path="res://sapito.gd" id="2_cac4m"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_o41su"]
+radius = 0.2810669
+height = 0.5621338
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_o41su"]
+
+[node name="sapito" type="CharacterBody3D" unique_id=961181470]
+script = ExtResource("2_cac4m")
+
+[node name="sapito" parent="." unique_id=1990774342 instance=ExtResource("1_o41su")]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0076668262, 0, -0.043573856)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=817948308]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.26974487, 0)
+shape = SubResource("CapsuleShape3D_o41su")
+
+[node name="Area3D" type="Area3D" parent="." unique_id=1376028528]
+transform = Transform3D(42.40436, 0, 0, 0, 42.40436, 0, 0, 0, 42.40436, 0, 0, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D" unique_id=1459325066]
+transform = Transform3D(0.17721112, 0, 0, 0, 0.17721112, 0, 0, 0, 0.17721112, 0, 0, 0)
+shape = SubResource("SphereShape3D_o41su")

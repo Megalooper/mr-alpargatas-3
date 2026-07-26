@@ -1,0 +1,8 @@
+[gd_scene format=3 uid="uid://br145736kurxr"]
+
+[ext_resource type="Script" uid="uid://tjvw4bo0nyhk" path="res://sapo_spawner.gd" id="1_brgy6"]
+[ext_resource type="PackedScene" uid="uid://bjbecdsx553wy" path="res://sapito.tscn" id="2_ptjue"]
+
+[node name="SapoSpawner" type="Marker3D" unique_id=1186680314]
+script = ExtResource("1_brgy6")
+enemigo_escena = ExtResource("2_ptjue")

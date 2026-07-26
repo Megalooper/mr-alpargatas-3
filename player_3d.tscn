@@ -1,0 +1,43 @@
+[gd_scene format=3 uid="uid://c6r2al4rtg5j2"]
+
+[ext_resource type="Script" uid="uid://cpp72l3qjdxbi" path="res://player_3d.gd" id="1_3swsy"]
+[ext_resource type="PackedScene" uid="uid://jmesn8xvarfc" path="res://Sophia_Skin.blend" id="1_5wjm4"]
+[ext_resource type="PackedScene" uid="uid://dakxl2dw6gonl" path="res://hud_zelda.tscn" id="3_vrjnx"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_3swsy"]
+radius = 0.2211914
+height = 1.0737305
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_3swsy"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_vrjnx"]
+height = 1.0
+
+[node name="Player3D" type="CharacterBody3D" unique_id=299683096]
+script = ExtResource("1_3swsy")
+
+[node name="Sophia_Skin" parent="." unique_id=1391162836 instance=ExtResource("1_5wjm4")]
+unique_name_in_owner = true
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=325541410]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.50801843, -0.082830966)
+shape = SubResource("CapsuleShape3D_3swsy")
+
+[node name="CameraPivot" type="Node3D" parent="." unique_id=1040400665]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 0.9781476, -0.2079117, 0, 0.2079117, 0.9781476, 0, 0.80107796, 0)
+
+[node name="SpringArm3D" type="SpringArm3D" parent="CameraPivot" unique_id=1539031450]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, 0, 0)
+shape = SubResource("SphereShape3D_3swsy")
+spring_length = 2.5
+
+[node name="Camera3D" type="Camera3D" parent="CameraPivot/SpringArm3D" unique_id=934951864]
+unique_name_in_owner = true
+
+[node name="CeilingCheck" type="ShapeCast3D" parent="." unique_id=532855782]
+unique_name_in_owner = true
+shape = SubResource("CapsuleShape3D_vrjnx")
+target_position = Vector3(0, 0.5, 0)
+
+[node name="HUD_Zelda" parent="." unique_id=1789134384 instance=ExtResource("3_vrjnx")]
