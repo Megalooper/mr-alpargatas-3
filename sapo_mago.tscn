@@ -1,0 +1,14 @@
+[gd_scene format=3 uid="uid://bkgdes13henk6"]
+
+[ext_resource type="PackedScene" uid="uid://rbaakn8vrxek" path="res://magosapo.blend" id="1_lh40u"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_lcpsx"]
+height = 2.0026855
+
+[node name="SapoMago" type="CharacterBody3D" unique_id=1994226614]
+
+[node name="magosapo" parent="." unique_id=728520184 instance=ExtResource("1_lh40u")]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=824571608]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.869751, 0)
+shape = SubResource("CapsuleShape3D_lcpsx")

@@ -257,7 +257,7 @@ mesh = SubResource("ArrayMesh_5xgho")
 shape = SubResource("ConcavePolygonShape3D_u52ul")
 
 [node name="CSGBakedMeshInstance3D30" type="MeshInstance3D" parent="." unique_id=719287716]
-transform = Transform3D(5.1864357, 0, 0, 0, 1, 0, 0, 0, 5.395342, 75.20685, 13.543091, 179.33528)
+transform = Transform3D(5.1864357, 0, 0, 0, 1, 0, 0, 0, 5.395342, 78.51604, 15.3239975, 179.33528)
 mesh = SubResource("ArrayMesh_5xgho")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="CSGBakedMeshInstance3D30" unique_id=1566507719]
@@ -436,44 +436,27 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -65.01904, 8.296417, -191.153
 [node name="CorazonPickup3" parent="." unique_id=1090645099 instance=ExtResource("6_1ainy")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -60.218082, 8.296417, -201.00365)
 
-[node name="mapa" parent="." unique_id=1857653825 instance=ExtResource("7_n6hdu")]
-transform = Transform3D(0.6, 0, 0, 0, 0.6, 0, 0, 0, 0.6, -3.2518463, -4.3217506, 23.900951)
+[node name="mapa" parent="." unique_id=1399095319 instance=ExtResource("7_n6hdu")]
+transform = Transform3D(0.6, 0, 0, 0, 0.6, 0, 0, 0, 0.6, 4.3520527, 0, 20.521)
 
-[node name="Checkpoint2" parent="." unique_id=1349429645 instance=ExtResource("5_f2txt")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.3079777, -4.359619, 24.00405)
+[node name="Checkpoint2" parent="." unique_id=1114257317 instance=ExtResource("5_f2txt")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.507632, -0.037868023, 20.162275)
 
-[node name="SapoSpawner2" parent="." unique_id=1700461311 node_paths=PackedStringArray("jugador") instance=ExtResource("4_0b4ue")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.5698025, -0.7899561, 41.476093)
+[node name="SapoSpawner2" parent="." unique_id=1067856372 node_paths=PackedStringArray("jugador") instance=ExtResource("4_0b4ue")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.3669095, 2.8742032, 40.06265)
 jugador = NodePath("../Player3D")
 
-[node name="SapoSpawner3" parent="." unique_id=1008842418 node_paths=PackedStringArray("jugador") instance=ExtResource("4_0b4ue")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.889057, 11.0430355, 41.476093)
+[node name="SapoSpawner3" parent="." unique_id=542370076 node_paths=PackedStringArray("jugador") instance=ExtResource("4_0b4ue")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.3669095, 2.8742032, 62.22662)
 jugador = NodePath("../Player3D")
 
-[node name="Checkpoint3" parent="." unique_id=751136997 instance=ExtResource("5_f2txt")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 18.745224, 8.472252, 36.592415)
-
-[node name="SapoSpawner4" parent="." unique_id=1549915109 node_paths=PackedStringArray("jugador") instance=ExtResource("4_0b4ue")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.119835, -1.4301016, 76.18134)
+[node name="SapoSpawner4" parent="." unique_id=1973344467 node_paths=PackedStringArray("jugador") instance=ExtResource("4_0b4ue")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.532787, 2.8742032, 75.491844)
 jugador = NodePath("../Player3D")
 
-[node name="SapoSpawner5" parent="." unique_id=32121605 node_paths=PackedStringArray("jugador") instance=ExtResource("4_0b4ue")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.3182564, -2.4271183, 76.18134)
+[node name="SapoSpawner5" parent="." unique_id=1903825036 node_paths=PackedStringArray("jugador") instance=ExtResource("4_0b4ue")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16.44869, 23.184383, 134.9142)
 jugador = NodePath("../Player3D")
 
-[node name="SapoSpawner6" parent="." unique_id=93127307 node_paths=PackedStringArray("jugador") instance=ExtResource("4_0b4ue")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.002682, 18.85545, 125.52811)
-jugador = NodePath("../Player3D")
-
-[node name="Checkpoint4" parent="." unique_id=1119244572 instance=ExtResource("5_f2txt")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.405362, 14.335418, 124.37554)
-
-[node name="SapoSpawner7" parent="." unique_id=1465568339 node_paths=PackedStringArray("jugador") instance=ExtResource("4_0b4ue")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 58.34073, 18.885635, 171.90363)
-jugador = NodePath("../Player3D")
-
-[node name="Checkpoint5" parent="." unique_id=2046940683 instance=ExtResource("5_f2txt")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 53.749832, 15.656925, 169.28719)
-
-[node name="Checkpoint6" parent="." unique_id=94094172 instance=ExtResource("5_f2txt")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 101.122604, 82.57348, 351.5585)
+[node name="Checkpoint3" parent="." unique_id=101865350 instance=ExtResource("5_f2txt")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 22.415403, 18.657167, 127.12241)
