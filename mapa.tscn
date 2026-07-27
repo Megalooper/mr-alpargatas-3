@@ -9373,6 +9373,8 @@ mesh = SubResource("ArrayMesh_x47gi")
 [node name="StaticBody3D2" type="AnimatableBody3D" parent="." unique_id=1055091827]
 transform = Transform3D(18.668316, 0, 0, 0, 18.668316, 0, 0, 0, 18.668316, 192.09312, 114.23976, 492.3713)
 script = ExtResource("2_70f7c")
+grados_rotacion = Vector3(0, 180, 0)
+tiempo_rotacion = 1.0
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D2" unique_id=976916827]
 shape = SubResource("ConcavePolygonShape3D_tbd83")
@@ -9384,7 +9386,8 @@ mesh = SubResource("ArrayMesh_gghvv")
 [node name="StaticBody3D3" type="AnimatableBody3D" parent="." unique_id=871832906]
 transform = Transform3D(18.668316, 0, 0, 0, 18.668316, 0, 0, 0, 18.668316, 211.70045, 95.30855, 462.82507)
 script = ExtResource("2_70f7c")
-grados_rotacion = Vector3(0, 180, 0)
+distancia_movimiento = Vector3(0, 10, 0)
+tiempo_viaje = 4.0
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D3" unique_id=1408283172]
 shape = SubResource("ConcavePolygonShape3D_log2u")

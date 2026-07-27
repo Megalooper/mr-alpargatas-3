@@ -67,3 +67,7 @@ transform = Transform3D(0.5126274, 0, -0.85861117, 0, 1, 0, 0.85861117, 0, 0.512
 [node name="SapoSpawner4" parent="." unique_id=795209778 node_paths=PackedStringArray("jugador") instance=ExtResource("4_0b4ue")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 43.577232, 112.70155, 400.98694)
 jugador = NodePath("../Player3D")
+
+[node name="SapoSpawner5" parent="." unique_id=2127455034 node_paths=PackedStringArray("jugador") instance=ExtResource("4_0b4ue")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7, 0, 39)
+jugador = NodePath("../Player3D")
