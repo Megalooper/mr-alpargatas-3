@@ -793,7 +793,6 @@ func _respawn() -> void:
 	
 	# --- INICIALIZAR EL HUD AL NACER/REVIVIR ---
 	if has_node("HUD_Zelda"):
-		$HUD_Zelda.esta_parpadeando = false # Por si acaso morimos recibiendo daño
 		$HUD_Zelda.actualizar_vida(current_hp, max_hp)
 	
 # ======================

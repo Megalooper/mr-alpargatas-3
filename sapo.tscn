@@ -2,6 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://bvti6tiq63swl" path="res://sapito.blend" id="1_o41su"]
 [ext_resource type="Script" uid="uid://bt8e6pvm442rw" path="res://sapito.gd" id="2_cac4m"]
+[ext_resource type="PackedScene" uid="uid://5jr7pidjmla7" path="res://corazon_pickup.tscn" id="2_ms1cl"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_o41su"]
 radius = 0.2810669
@@ -11,6 +12,7 @@ height = 0.5621338
 
 [node name="sapito" type="CharacterBody3D" unique_id=961181470]
 script = ExtResource("2_cac4m")
+escena_corazon = ExtResource("2_ms1cl")
 
 [node name="sapito" parent="." unique_id=1990774342 instance=ExtResource("1_o41su")]
 unique_name_in_owner = true
