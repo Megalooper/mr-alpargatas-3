@@ -1,0 +1,20 @@
+[gd_scene format=3 uid="uid://hfx7md5uqgub"]
+
+[ext_resource type="Script" uid="uid://brhrjgqysnhdx" path="res://bola_fuego.gd" id="1_vigm8"]
+
+[sub_resource type="SphereMesh" id="SphereMesh_8m6cd"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_prwl5"]
+albedo_color = Color(0.9019608, 0.22745098, 0.09803922, 1)
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_c3yaq"]
+
+[node name="BolaFuego" type="Area3D" unique_id=1718973027]
+script = ExtResource("1_vigm8")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1195996773]
+mesh = SubResource("SphereMesh_8m6cd")
+surface_material_override/0 = SubResource("StandardMaterial3D_prwl5")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1960936853]
+shape = SubResource("SphereShape3D_c3yaq")

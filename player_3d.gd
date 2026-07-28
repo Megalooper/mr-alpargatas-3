@@ -592,6 +592,19 @@ func _physics_process(delta: float) -> void:
 	# Caída al vacío (Muerte instantánea, sin timers raros)
 	if global_transform.origin.y < _fall_threshold:
 		take_damage(max_hp, Vector3.ZERO) 
+		
+	# --- LÓGICA PARA REPARTIR COÑAZOS (ACTUALIZADA A ÁREAS) ---
+	if _is_kicking or _is_crouch_kicking:
+		if has_node("%Sophia_Skin/HitboxPatada"):
+			var hitbox = get_node("%Sophia_Skin/HitboxPatada")
+			# TRUCO AQUÍ: Buscamos "areas" en vez de "bodies"
+			for area in hitbox.get_overlapping_areas():
+				# Verificamos que le pegamos al área correcta (Hurtbox)
+				if area.name == "HurtBox":
+					# El papá del Hurtbox es el SapoMago, así que a él le pasamos el daño
+					var enemigo = area.get_parent() 
+					if enemigo.has_method("recibir_dano_fisico"):
+						enemigo.recibir_dano_fisico()
 
 	_was_on_floor = effective_on_floor
 

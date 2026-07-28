@@ -1,14 +1,40 @@
 [gd_scene format=3 uid="uid://bkgdes13henk6"]
 
+[ext_resource type="Script" uid="uid://djj1ur2i5nw85" path="res://sapo_mago.gd" id="1_lcpsx"]
 [ext_resource type="PackedScene" uid="uid://rbaakn8vrxek" path="res://magosapo.blend" id="1_lh40u"]
+[ext_resource type="PackedScene" uid="uid://hfx7md5uqgub" path="res://bola_fuego.tscn" id="2_1vt6s"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_lcpsx"]
 height = 2.0026855
 
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_lcpsx"]
+height = 11.780762
+radius = 15.132324
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_1vt6s"]
+radius = 0.7597656
+height = 2.116211
+
 [node name="SapoMago" type="CharacterBody3D" unique_id=1994226614]
+script = ExtResource("1_lcpsx")
+bola_fuego_escena = ExtResource("2_1vt6s")
 
 [node name="magosapo" parent="." unique_id=728520184 instance=ExtResource("1_lh40u")]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=824571608]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.869751, 0)
 shape = SubResource("CapsuleShape3D_lcpsx")
+
+[node name="ZonaDeteccion" type="Area3D" parent="." unique_id=576804285]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="ZonaDeteccion" unique_id=335161560]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.6711426, 0)
+shape = SubResource("CylinderShape3D_lcpsx")
+
+[node name="TimerAtaque" type="Timer" parent="." unique_id=629573344]
+
+[node name="HurtBox" type="Area3D" parent="." unique_id=1913436041]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="HurtBox" unique_id=631227022]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.80029297, 0)
+shape = SubResource("CapsuleShape3D_1vt6s")

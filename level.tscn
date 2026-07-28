@@ -2,6 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://c6r2al4rtg5j2" path="res://player_3d.tscn" id="1_u52ul"]
 [ext_resource type="PackedScene" uid="uid://br145736kurxr" path="res://sapo_spawner.tscn" id="4_0b4ue"]
+[ext_resource type="PackedScene" uid="uid://bkgdes13henk6" path="res://sapo_mago.tscn" id="5_1ainy"]
 [ext_resource type="PackedScene" uid="uid://cg0jveohgfiww" path="res://checkpoint.tscn" id="5_f2txt"]
 [ext_resource type="PackedScene" uid="uid://dhfrmxrfdv6xa" path="res://mapa.tscn" id="7_n6hdu"]
 
@@ -43,9 +44,6 @@ environment = SubResource("Environment_oi3di")
 [node name="mapa" parent="." unique_id=1399095319 instance=ExtResource("7_n6hdu")]
 transform = Transform3D(0.6, 0, 0, 0, 0.6, 0, 0, 0, 0.6, 4.3520527, 0, 20.521)
 
-[node name="Player3D" parent="." unique_id=299683096 groups=["Player"] instance=ExtResource("1_u52ul")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.5085154, 0.045850456, 20.45616)
-
 [node name="SapoSpawner" parent="." unique_id=1186680314 node_paths=PackedStringArray("jugador") instance=ExtResource("4_0b4ue")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.374281, 0.57896996, 107.44109)
 jugador = NodePath("../Player3D")
@@ -74,3 +72,9 @@ jugador = NodePath("../Player3D")
 
 [node name="Checkpoint3" parent="." unique_id=1642402693 instance=ExtResource("5_f2txt")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 121, 56, 251)
+
+[node name="SapoMago" parent="." unique_id=1994226614 instance=ExtResource("5_1ainy")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 107, 90, 340)
+
+[node name="Player3D" parent="." unique_id=299683096 instance=ExtResource("1_u52ul")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.458695, 0.045850478, 21.050686)
