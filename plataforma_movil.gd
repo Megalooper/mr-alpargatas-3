@@ -12,8 +12,8 @@ extends AnimatableBody3D
 var posicion_inicial: Vector3
 
 func _ready() -> void:
-	# Guardamos de dónde arranca para que no se pierda en el espacio
-	posicion_inicial = global_position
+	# FIX: Guardamos la posición LOCAL, no la global.
+	posicion_inicial = position
 	
 	if distancia_movimiento != Vector3.ZERO:
 		_activar_movimiento()
@@ -24,13 +24,14 @@ func _ready() -> void:
 func _activar_movimiento() -> void:
 	var posicion_destino = posicion_inicial + distancia_movimiento
 	
-	# El Tween en modo FÍSICAS es lo que evita que el personaje se bugee
 	var tween = get_tree().create_tween().set_process_mode(Tween.TWEEN_PROCESS_PHYSICS).set_loops()
 	
-	tween.tween_property(self, "global_position", posicion_destino, tiempo_viaje).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN_OUT)
+	# FIX: Cambiamos "global_position" a "position"
+	tween.tween_property(self, "position", posicion_destino, tiempo_viaje).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN_OUT)
 	tween.tween_interval(tiempo_espera) 
 	
-	tween.tween_property(self, "global_position", posicion_inicial, tiempo_viaje).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN_OUT)
+	# FIX: Cambiamos "global_position" a "position"
+	tween.tween_property(self, "position", posicion_inicial, tiempo_viaje).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN_OUT)
 	tween.tween_interval(tiempo_espera) 
 
 func _activar_rotacion() -> void:

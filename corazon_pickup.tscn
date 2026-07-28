@@ -9,6 +9,10 @@ height = 0.4663086
 
 [node name="CorazonPickup" type="Area3D" unique_id=944894550]
 script = ExtResource("1_fwilg")
+cantidad_cura = null
+spin_speed = null
+float_speed = null
+float_height = null
 
 [node name="heart" parent="." unique_id=1901516244 instance=ExtResource("1_i7k4h")]
 
