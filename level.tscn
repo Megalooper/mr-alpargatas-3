@@ -76,5 +76,5 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 121, 56, 251)
 [node name="SapoMago" parent="." unique_id=1994226614 instance=ExtResource("5_1ainy")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 107, 90, 340)
 
-[node name="Player3D" parent="." unique_id=299683096 instance=ExtResource("1_u52ul")]
+[node name="Player3D" parent="." unique_id=299683096 groups=["Player"] instance=ExtResource("1_u52ul")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.458695, 0.045850478, 21.050686)
