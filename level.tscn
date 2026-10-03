@@ -58,10 +58,10 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 39.673687, 18.968672, 154.373
 jugador = NodePath("../Player3D")
 
 [node name="Checkpoint" parent="." unique_id=1576822084 instance=ExtResource("5_f2txt")]
-transform = Transform3D(0.05716325, 0, 0.99836487, 0, 1, 0, -0.99836487, 0, 0.05716325, 64.54242, 19.47266, 165.75836)
+transform = Transform3D(0.05716325, 0, 0.99836487, 0, 1, 0, -0.99836487, 0, 0.05716325, 64.54242, 19.837845, 165.75836)
 
 [node name="Checkpoint2" parent="." unique_id=1315284734 instance=ExtResource("5_f2txt")]
-transform = Transform3D(0.5126274, 0, -0.85861117, 0, 1, 0, 0.85861117, 0, 0.5126274, 60.980717, 112.70157, 382.91397)
+transform = Transform3D(0.5126274, 0, -0.85861117, 0, 1, 0, 0.85861117, 0, 0.5126274, 60.980717, 113.19362, 382.91397)
 
 [node name="SapoSpawner4" parent="." unique_id=795209778 node_paths=PackedStringArray("jugador") instance=ExtResource("4_0b4ue")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 43.577232, 112.70155, 400.98694)
