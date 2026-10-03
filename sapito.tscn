@@ -16,6 +16,9 @@ height = 0.94140625
 [sub_resource type="BoxShape3D" id="BoxShape3D_igjo4"]
 size = Vector3(0.6208496, 0.25100708, 0.73535156)
 
+[sub_resource type="SphereShape3D" id="SphereShape3D_i250x"]
+radius = 0.4134064
+
 [node name="sapito" type="CharacterBody3D" unique_id=673781796 groups=["Enemigo"]]
 script = ExtResource("1_igjo4")
 escena_corazon = ExtResource("2_4n0qa")
@@ -63,6 +66,12 @@ shape = SubResource("BoxShape3D_igjo4")
 
 [node name="DecisionTimer" type="Timer" parent="." unique_id=216310368]
 autostart = true
+
+[node name="HurtBox" type="Area3D" parent="." unique_id=610122543]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.4701488, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="HurtBox" unique_id=1705635266]
+shape = SubResource("SphereShape3D_i250x")
 
 [connection signal="body_entered" from="ZonaVision" to="." method="_on_zona_vision_body_entered"]
 [connection signal="body_exited" from="ZonaVision" to="." method="_on_zona_vision_body_exited"]

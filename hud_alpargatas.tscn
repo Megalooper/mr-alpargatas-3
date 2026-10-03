@@ -1,0 +1,61 @@
+[gd_scene format=3 uid="uid://dp1ybwdkied55"]
+
+[ext_resource type="Script" uid="uid://d0n72dek3s02c" path="res://hud_alpargatas.gd" id="1_u34b8"]
+[ext_resource type="Texture2D" uid="uid://c045r03rbfijc" path="res://Rostro_Full_Vida.png" id="2_qxihh"]
+[ext_resource type="Texture2D" uid="uid://cspe085hrmlu0" path="res://Corazon_Completo.png" id="3_osa3r"]
+
+[node name="HUDAlpargatas" type="CanvasLayer" unique_id=1299572561]
+script = ExtResource("1_u34b8")
+
+[node name="Margen" type="Control" parent="." unique_id=1885754491]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="CaraMocasin" type="TextureRect" parent="Margen" unique_id=624258417]
+layout_mode = 0
+offset_left = 37.0
+offset_top = 44.0
+offset_right = 169.0
+offset_bottom = 157.0
+mouse_filter = 2
+texture = ExtResource("2_qxihh")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="ContenedorCorazones" type="HBoxContainer" parent="Margen" unique_id=598949773]
+layout_mode = 0
+offset_left = 167.0
+offset_top = 81.0
+offset_right = 207.0
+offset_bottom = 121.0
+mouse_filter = 2
+theme_override_constants/separation = 10
+
+[node name="TextureRect" type="TextureRect" parent="Margen/ContenedorCorazones" unique_id=858776836]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+mouse_filter = 2
+texture = ExtResource("3_osa3r")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="TextureRect2" type="TextureRect" parent="Margen/ContenedorCorazones" unique_id=256120711]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+mouse_filter = 2
+texture = ExtResource("3_osa3r")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="TextureRect3" type="TextureRect" parent="Margen/ContenedorCorazones" unique_id=1966232320]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+mouse_filter = 2
+texture = ExtResource("3_osa3r")
+expand_mode = 1
+stretch_mode = 5

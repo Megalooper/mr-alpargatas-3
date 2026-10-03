@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://bkgdes13henk6"]
 
 [ext_resource type="Script" uid="uid://djj1ur2i5nw85" path="res://sapo_mago.gd" id="1_lcpsx"]
-[ext_resource type="PackedScene" uid="uid://rbaakn8vrxek" path="res://magosapo.blend" id="1_lh40u"]
+[ext_resource type="PackedScene" uid="uid://dp03y75okvj27" path="res://magosapo.blend" id="1_lh40u"]
 [ext_resource type="PackedScene" uid="uid://hfx7md5uqgub" path="res://bola_fuego.tscn" id="2_1vt6s"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_lcpsx"]

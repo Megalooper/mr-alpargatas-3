@@ -11,13 +11,14 @@ config_version=5
 [application]
 
 config/name="JUEGO 3"
-run/main_scene="uid://dws0k4sqt72ty"
+run/main_scene="uid://8m6lbiglmxin"
 config/features=PackedStringArray("4.6", "Forward Plus")
 config/icon="res://icon.svg"
 
 [autoload]
 
 Global="*uid://cqnt056a4vl7i"
+InputManager="*uid://cukee2v15tvea"
 
 [display]
 

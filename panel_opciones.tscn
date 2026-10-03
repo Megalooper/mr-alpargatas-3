@@ -1,0 +1,295 @@
+[gd_scene format=3 uid="uid://duyoklmtksc28"]
+
+[ext_resource type="Script" uid="uid://b3qymvckg3e77" path="res://panel_opciones.gd" id="1_tqgli"]
+[ext_resource type="FontFile" uid="uid://dkpwy17q82lyg" path="res://Saira[wdth,wght].ttf" id="2_d45w5"]
+
+[sub_resource type="FontVariation" id="FontVariation_qv7xn"]
+base_font = ExtResource("2_d45w5")
+variation_opentype = {
+2003072104: 100,
+2003265652: 800
+}
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4m0dv"]
+bg_color = Color(0.72156864, 0.47843137, 0.3137255, 1)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color(0.39981478, 0.24724707, 0.14205498, 1)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+
+[sub_resource type="FontVariation" id="FontVariation_7xxlv"]
+base_font = ExtResource("2_d45w5")
+variation_opentype = {
+2003072104: 100,
+2003265652: 400
+}
+
+[sub_resource type="FontVariation" id="FontVariation_lkse8"]
+base_font = ExtResource("2_d45w5")
+variation_opentype = {
+2003072104: 100,
+2003265652: 800
+}
+
+[sub_resource type="FontVariation" id="FontVariation_ly3bq"]
+base_font = ExtResource("2_d45w5")
+variation_opentype = {
+2003072104: 100,
+2003265652: 800
+}
+
+[node name="PanelOpciones" type="ColorRect" unique_id=926891616]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -2.0
+offset_bottom = -2.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(1, 1, 1, 0.14509805)
+script = ExtResource("1_tqgli")
+
+[node name="Controles" type="Label" parent="." unique_id=998234112]
+layout_mode = 0
+offset_left = 617.0
+offset_top = 159.0
+offset_right = 887.0
+offset_bottom = 255.0
+theme_override_colors/font_color = Color(0, 1, 0, 1)
+theme_override_colors/font_outline_color = Color(0.44313726, 0.28627452, 0.15294118, 1)
+theme_override_constants/outline_size = 15
+theme_override_fonts/font = SubResource("FontVariation_qv7xn")
+theme_override_font_sizes/font_size = 60
+text = "Contorles"
+
+[node name="FondoControles" type="Panel" parent="." unique_id=671433874]
+custom_minimum_size = Vector2(650, 400)
+layout_mode = 0
+offset_left = 416.0
+offset_top = 279.0
+offset_right = 1066.0
+offset_bottom = 679.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_4m0dv")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="FondoControles" unique_id=550276756]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.02
+anchor_top = 0.15
+anchor_right = 0.98
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MitadIzquierda" type="VBoxContainer" parent="FondoControles/HBoxContainer" unique_id=1787282984]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="HBoxAdelante" type="HBoxContainer" parent="FondoControles/HBoxContainer/MitadIzquierda" unique_id=1336838321]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="FondoControles/HBoxContainer/MitadIzquierda/HBoxAdelante" unique_id=126088326]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(0, 0, 1, 1)
+theme_override_colors/font_outline_color = Color(0.44313726, 0.28627452, 0.15294118, 1)
+theme_override_constants/outline_size = 5
+theme_override_fonts/font = SubResource("FontVariation_7xxlv")
+theme_override_font_sizes/font_size = 30
+text = "Adelante"
+
+[node name="BtnRemapearAdelante" type="Button" parent="FondoControles/HBoxContainer/MitadIzquierda/HBoxAdelante" unique_id=789912901]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(0, 1, 0, 1)
+theme_override_fonts/font = SubResource("FontVariation_lkse8")
+theme_override_font_sizes/font_size = 30
+text = "W"
+flat = true
+
+[node name="HBoxAtras" type="HBoxContainer" parent="FondoControles/HBoxContainer/MitadIzquierda" unique_id=529441148]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="FondoControles/HBoxContainer/MitadIzquierda/HBoxAtras" unique_id=241862247]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(0, 0, 1, 1)
+theme_override_colors/font_outline_color = Color(0.44313726, 0.28627452, 0.15294118, 1)
+theme_override_constants/outline_size = 5
+theme_override_fonts/font = SubResource("FontVariation_7xxlv")
+theme_override_font_sizes/font_size = 30
+text = "Atras"
+
+[node name="BtnRemapearAtras" type="Button" parent="FondoControles/HBoxContainer/MitadIzquierda/HBoxAtras" unique_id=628759397]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(0, 1, 0, 1)
+theme_override_fonts/font = SubResource("FontVariation_lkse8")
+theme_override_font_sizes/font_size = 30
+text = "S"
+flat = true
+
+[node name="HBoxIzquierda" type="HBoxContainer" parent="FondoControles/HBoxContainer/MitadIzquierda" unique_id=567486697]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="FondoControles/HBoxContainer/MitadIzquierda/HBoxIzquierda" unique_id=1811255770]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(0, 0, 1, 1)
+theme_override_colors/font_outline_color = Color(0.44313726, 0.28627452, 0.15294118, 1)
+theme_override_constants/outline_size = 5
+theme_override_fonts/font = SubResource("FontVariation_7xxlv")
+theme_override_font_sizes/font_size = 30
+text = "Izquierda"
+
+[node name="BtnRemapearIzquierda" type="Button" parent="FondoControles/HBoxContainer/MitadIzquierda/HBoxIzquierda" unique_id=473847215]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(0, 1, 0, 1)
+theme_override_fonts/font = SubResource("FontVariation_lkse8")
+theme_override_font_sizes/font_size = 30
+text = "A"
+flat = true
+
+[node name="HBoxDerecha" type="HBoxContainer" parent="FondoControles/HBoxContainer/MitadIzquierda" unique_id=883117663]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="FondoControles/HBoxContainer/MitadIzquierda/HBoxDerecha" unique_id=1608904592]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(0, 0, 1, 1)
+theme_override_colors/font_outline_color = Color(0.44313726, 0.28627452, 0.15294118, 1)
+theme_override_constants/outline_size = 5
+theme_override_fonts/font = SubResource("FontVariation_7xxlv")
+theme_override_font_sizes/font_size = 30
+text = "Derecha"
+
+[node name="BtnRemapearDerecha" type="Button" parent="FondoControles/HBoxContainer/MitadIzquierda/HBoxDerecha" unique_id=1943206761]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(0, 1, 0, 1)
+theme_override_fonts/font = SubResource("FontVariation_lkse8")
+theme_override_font_sizes/font_size = 30
+text = "D"
+flat = true
+
+[node name="MitadDerecha" type="VBoxContainer" parent="FondoControles/HBoxContainer" unique_id=1399667586]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="HBoxSaltar" type="HBoxContainer" parent="FondoControles/HBoxContainer/MitadDerecha" unique_id=712486762]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="FondoControles/HBoxContainer/MitadDerecha/HBoxSaltar" unique_id=1264937767]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(0, 0, 1, 1)
+theme_override_colors/font_outline_color = Color(0.44313726, 0.28627452, 0.15294118, 1)
+theme_override_constants/outline_size = 5
+theme_override_fonts/font = SubResource("FontVariation_7xxlv")
+theme_override_font_sizes/font_size = 30
+text = "Saltar"
+
+[node name="BtnRemapearSaltar" type="Button" parent="FondoControles/HBoxContainer/MitadDerecha/HBoxSaltar" unique_id=1135486907]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(0, 1, 0, 1)
+theme_override_fonts/font = SubResource("FontVariation_lkse8")
+theme_override_font_sizes/font_size = 30
+text = "Espacio"
+flat = true
+
+[node name="HBoxPatear" type="HBoxContainer" parent="FondoControles/HBoxContainer/MitadDerecha" unique_id=346328401]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="FondoControles/HBoxContainer/MitadDerecha/HBoxPatear" unique_id=1409817688]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(0, 0, 1, 1)
+theme_override_colors/font_outline_color = Color(0.44313726, 0.28627452, 0.15294118, 1)
+theme_override_constants/outline_size = 5
+theme_override_fonts/font = SubResource("FontVariation_7xxlv")
+theme_override_font_sizes/font_size = 30
+text = "Patear"
+
+[node name="BtnRemapearPatear" type="Button" parent="FondoControles/HBoxContainer/MitadDerecha/HBoxPatear" unique_id=1083016854]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(0, 1, 0, 1)
+theme_override_fonts/font = SubResource("FontVariation_lkse8")
+theme_override_font_sizes/font_size = 30
+text = "Click Derecho"
+flat = true
+
+[node name="HBoxKickSpin" type="HBoxContainer" parent="FondoControles/HBoxContainer/MitadDerecha" unique_id=716849059]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="FondoControles/HBoxContainer/MitadDerecha/HBoxKickSpin" unique_id=257424141]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(0, 0, 1, 1)
+theme_override_colors/font_outline_color = Color(0.44313726, 0.28627452, 0.15294118, 1)
+theme_override_constants/outline_size = 5
+theme_override_fonts/font = SubResource("FontVariation_7xxlv")
+theme_override_font_sizes/font_size = 30
+text = "Patada Giro"
+
+[node name="BtnRemapearKickspin" type="Button" parent="FondoControles/HBoxContainer/MitadDerecha/HBoxKickSpin" unique_id=599925664]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(0, 1, 0, 1)
+theme_override_fonts/font = SubResource("FontVariation_lkse8")
+theme_override_font_sizes/font_size = 30
+text = "E"
+flat = true
+
+[node name="HBoxAgachar" type="HBoxContainer" parent="FondoControles/HBoxContainer/MitadDerecha" unique_id=358321341]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="FondoControles/HBoxContainer/MitadDerecha/HBoxAgachar" unique_id=665956034]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(0, 0, 1, 1)
+theme_override_colors/font_outline_color = Color(0.44313726, 0.28627452, 0.15294118, 1)
+theme_override_constants/outline_size = 5
+theme_override_fonts/font = SubResource("FontVariation_7xxlv")
+theme_override_font_sizes/font_size = 30
+text = "Agacharse"
+
+[node name="BtnRemapearAgachar" type="Button" parent="FondoControles/HBoxContainer/MitadDerecha/HBoxAgachar" unique_id=2066388570]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(0, 1, 0, 1)
+theme_override_fonts/font = SubResource("FontVariation_lkse8")
+theme_override_font_sizes/font_size = 30
+text = "Ctrl"
+flat = true
+
+[node name="BotonVolver" type="Button" parent="." unique_id=1187607073]
+layout_mode = 0
+offset_left = 675.0
+offset_top = 688.0
+offset_right = 804.0
+offset_bottom = 760.0
+theme_override_colors/font_color = Color(0, 1, 0, 1)
+theme_override_colors/font_outline_color = Color(0.44313726, 0.28627452, 0.15294118, 1)
+theme_override_constants/outline_size = 15
+theme_override_fonts/font = SubResource("FontVariation_ly3bq")
+theme_override_font_sizes/font_size = 40
+text = "Volver"
+flat = true
+
+[connection signal="pressed" from="FondoControles/HBoxContainer/MitadIzquierda/HBoxAdelante/BtnRemapearAdelante" to="." method="_on_btn_remapear_adelante_pressed"]
+[connection signal="pressed" from="FondoControles/HBoxContainer/MitadIzquierda/HBoxAtras/BtnRemapearAtras" to="." method="_on_btn_remapear_atras_pressed"]
+[connection signal="pressed" from="FondoControles/HBoxContainer/MitadIzquierda/HBoxIzquierda/BtnRemapearIzquierda" to="." method="_on_btn_remapear_izquierda_pressed"]
+[connection signal="pressed" from="FondoControles/HBoxContainer/MitadIzquierda/HBoxDerecha/BtnRemapearDerecha" to="." method="_on_btn_remapear_derecha_pressed"]
+[connection signal="pressed" from="FondoControles/HBoxContainer/MitadDerecha/HBoxSaltar/BtnRemapearSaltar" to="." method="_on_btn_remapear_saltar_pressed"]
+[connection signal="pressed" from="FondoControles/HBoxContainer/MitadDerecha/HBoxPatear/BtnRemapearPatear" to="." method="_on_btn_remapear_patear_pressed"]
+[connection signal="pressed" from="FondoControles/HBoxContainer/MitadDerecha/HBoxKickSpin/BtnRemapearKickspin" to="." method="_on_btn_remapear_kickspin_pressed"]
+[connection signal="pressed" from="FondoControles/HBoxContainer/MitadDerecha/HBoxAgachar/BtnRemapearAgachar" to="." method="_on_btn_remapear_agachar_pressed"]
+[connection signal="pressed" from="BotonVolver" to="." method="_on_boton_volver_pressed"]

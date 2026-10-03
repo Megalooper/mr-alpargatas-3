@@ -34,7 +34,7 @@ var es_invulnerable: bool = false
 @onready var anim_player: AnimationPlayer = $magosapo/AnimationPlayer
 @onready var zona_deteccion: Area3D = $ZonaDeteccion
 @onready var malla_visual: Node3D = $magosapo
-@onready var hurtbox_area: Area3D = $HurtBox # El área que escanea los golpes
+@onready var hurtbox_area: Area3D = $HurtBox 
 
 # =========================================================
 # VARIABLES INTERNAS
@@ -43,13 +43,11 @@ var objetivo: Node3D = null
 var tiempo_flotacion: float = 0.0
 var altura_vuelo_base: float = 0.0
 var pos_inicio_malla: float = 0.0
-
-# =========================================================
-# FUNCIONES PRINCIPALES
-# =========================================================
+var pos_inicial: Vector3 = Vector3.ZERO
 
 func _ready() -> void:
 	altura_vuelo_base = global_position.y
+	pos_inicial = global_position 
 	if malla_visual:
 		pos_inicio_malla = malla_visual.position.y
 	
@@ -66,17 +64,10 @@ func _ready() -> void:
 
 func _physics_process(delta: float) -> void:
 	match estado_actual:
-		Estado.IDLE:
-			_estado_idle(delta)
-		Estado.COMBATE:
-			_estado_combate(delta)
-		Estado.CARGANDO:
-			_estado_cargando(delta)
-		Estado.MAREADO:
-			_estado_mareado(delta)
-
-	# Escaneamos constantemente si nos están pateando
-	_check_hitboxes()
+		Estado.IDLE: _estado_idle(delta)
+		Estado.COMBATE: _estado_combate(delta)
+		Estado.CARGANDO: _estado_cargando(delta)
+		Estado.MAREADO: _estado_mareado(delta)
 
 	move_and_slide()
 
@@ -87,7 +78,23 @@ func _physics_process(delta: float) -> void:
 func _estado_idle(delta: float) -> void:
 	_procesar_flotacion(delta, 1.5, 0.2) 
 	
-	velocity = Vector3.ZERO
+	var pos_actual_plana = Vector3(global_position.x, 0, global_position.z)
+	var pos_casa_plana = Vector3(pos_inicial.x, 0, pos_inicial.z)
+	var distancia_casa = pos_actual_plana.distance_to(pos_casa_plana)
+	
+	if distancia_casa > 0.5:
+		var direccion_casa = pos_actual_plana.direction_to(pos_casa_plana)
+		velocity.x = direccion_casa.x * (velocidad_vuelo * 0.7)
+		velocity.z = direccion_casa.z * (velocidad_vuelo * 0.7)
+		
+		var target_pos = pos_inicial
+		target_pos.y = global_position.y 
+		var transform_mirada = global_transform.looking_at(target_pos, Vector3.UP)
+		global_transform.basis = global_transform.basis.slerp(transform_mirada.basis, velocidad_rotacion * delta)
+	else:
+		velocity.x = lerp(velocity.x, 0.0, 5.0 * delta)
+		velocity.z = lerp(velocity.z, 0.0, 5.0 * delta)
+		
 	velocity.y = (altura_vuelo_base - global_position.y) * 4.0
 
 func _estado_combate(delta: float) -> void:
@@ -121,7 +128,6 @@ func _estado_combate(delta: float) -> void:
 
 func _estado_cargando(delta: float) -> void:
 	_procesar_flotacion(delta, 8.0, 0.1) 
-	
 	velocity = Vector3.ZERO 
 	velocity.y = (altura_vuelo_base - global_position.y) * 4.0
 	
@@ -141,7 +147,6 @@ func _estado_mareado(delta: float) -> void:
 # =========================================================
 # FUNCIONES AUXILIARES
 # =========================================================
-
 func _procesar_flotacion(delta: float, velocidad_onda: float, amplitud: float) -> void:
 	tiempo_flotacion += delta
 	if malla_visual:
@@ -150,63 +155,49 @@ func _procesar_flotacion(delta: float, velocidad_onda: float, amplitud: float) -
 func _mirar_hacia_objetivo(delta: float) -> void:
 	var target_pos = objetivo.global_position
 	target_pos.y = global_position.y 
-	
 	if global_position.is_equal_approx(target_pos): return
 	
 	var transform_mirada = global_transform.looking_at(target_pos, Vector3.UP)
 	global_transform.basis = global_transform.basis.slerp(transform_mirada.basis, velocidad_rotacion * delta)
 
-func _cambiar_estado(nuevo_estado: Estado, nombre_animacion: String) -> void:
+func _cambiar_estado(nuevo_estado: Estado, nombre_animacion: String, transicion: float = 0.2) -> void:
 	estado_actual = nuevo_estado
-	if anim_player:
-		if anim_player.has_animation(nombre_animacion):
-			anim_player.play(nombre_animacion)
-		else:
-			print("🚨 ERROR VISUAL: El AnimationPlayer no tiene ninguna animación llamada '", nombre_animacion, "'")
-		
+	if anim_player and anim_player.has_animation(nombre_animacion):
+		anim_player.play(nombre_animacion, transicion)
+
 # =========================================================
 # LÓGICA DE ATAQUE
 # =========================================================
-
 func _iniciar_carga() -> void:
-	if estado_actual != Estado.COMBATE or not is_instance_valid(objetivo):
-		return
+	if estado_actual != Estado.COMBATE or not is_instance_valid(objetivo): return
 		
 	print("🐸 MAGO: ¡Cargando el ki...!")
 	_cambiar_estado(Estado.CARGANDO, "attackcharge ")
 	timer_ataque.stop() 
 	
-	await get_tree().create_timer(2.0).timeout
-	
-	if estado_actual == Estado.CARGANDO:
-		_ejecutar_disparo()
+	await get_tree().create_timer(1.5).timeout
+	if estado_actual == Estado.CARGANDO: _ejecutar_disparo()
 
 func _ejecutar_disparo() -> void:
 	if not is_instance_valid(objetivo):
 		_cambiar_estado(Estado.IDLE, "idle")
 		return
-		
-	if bola_fuego_escena == null:
-		return
+	if bola_fuego_escena == null: return
 		
 	if anim_player and anim_player.has_animation("attack"):
-		anim_player.play("attack")
+		anim_player.play("attack", 0.1) 
 		anim_player.queue("levitate")
 	
 	await get_tree().create_timer(0.4).timeout
 	
-	if not is_instance_valid(objetivo) or estado_actual == Estado.MAREADO:
-		return
+	if not is_instance_valid(objetivo) or estado_actual == Estado.MAREADO: return
 	
 	var proyectil = bola_fuego_escena.instantiate()
 	get_parent().add_child(proyectil) 
-	
 	proyectil.global_position = global_position + (global_transform.basis.z * 1.5)
 	
 	var centro_jugador = objetivo.global_position + Vector3(0, 1.0, 0)
-	var dir_disparo = global_position.direction_to(centro_jugador)
-	proyectil.direccion = dir_disparo.normalized()
-	
+	proyectil.direccion = global_position.direction_to(centro_jugador).normalized()
 	proyectil.objetivo_actual = objetivo
 	proyectil.creador = self
 	
@@ -216,25 +207,34 @@ func _ejecutar_disparo() -> void:
 # =========================================================
 # SISTEMA DE VIDA Y DOLOR
 # =========================================================
-
-func _check_hitboxes() -> void:
-	if not is_instance_valid(hurtbox_area):
+func recibir_dano_fisico() -> void:
+	if vida_actual <= 0 or es_invulnerable: 
 		return
-		
-	# Escaneamos si Mr. Alpargatas está tocando el área de dolor del Mago
-	for body in hurtbox_area.get_overlapping_bodies():
-		if body.is_in_group("Player"):
-			if body.get("_is_kicking") == true or body.get("_is_crouch_kicking") == true:
-				if not es_invulnerable:
-					recibir_dano_fisico()
-			return
 
-func aturdir() -> void:
-	if estado_actual == Estado.MAREADO: 
-		return
+	# Si estaba volando, el primer coñazo lo tumba
+	if estado_actual != Estado.MAREADO:
+		aturdir(true)
+	else:
+		# Si ya está en el piso mareado, le rompemos la madre
+		vida_actual -= 1
+		es_invulnerable = true 
 		
-	print("🐸 MAGO: ¡Maldita sea, mi propio ki!")
-	_cambiar_estado(Estado.MAREADO, "idle") 
+		if vida_actual <= 0:
+			morir()
+		else:
+			print("🩸 MAGO: ¡Me reventaste la costilla! Me queda ", vida_actual, " de vida.")
+			_cambiar_estado(Estado.COMBATE, "levitate")
+			
+		await get_tree().create_timer(1.0).timeout
+		es_invulnerable = false
+
+func aturdir(fue_por_patada: bool = false) -> void:
+	if estado_actual == Estado.MAREADO: return
+		
+	if fue_por_patada: print("🐸 MAGO: ¡Agh, mis dientes! ¡Qué patadón!")
+	else: print("🐸 MAGO: ¡Maldita sea, mi propio ki!")
+		
+	_cambiar_estado(Estado.MAREADO, "hitstun") 
 	timer_ataque.stop()
 	
 	await get_tree().create_timer(4.0).timeout
@@ -242,28 +242,11 @@ func aturdir() -> void:
 		print("🐸 MAGO: Me sacudí el polvo. ¡Voy por ti!")
 		_cambiar_estado(Estado.COMBATE, "levitate")
 
-func recibir_dano_fisico() -> void:
-	if vida_actual <= 0 or es_invulnerable: 
-		return
-		
-	vida_actual -= 1
-	es_invulnerable = true 
-	
-	if vida_actual <= 0:
-		morir()
-	else:
-		print("🩸 MAGO: ¡Me reventaste la costilla! Me queda ", vida_actual, " de vida.")
-		_cambiar_estado(Estado.COMBATE, "levitate")
-		
-	await get_tree().create_timer(1.0).timeout
-	es_invulnerable = false
-
 func morir() -> void:
 	print("☠️ MAGO: Me fuí pal hueco...")
 	_cambiar_estado(Estado.MAREADO, "dead") 
 	timer_ataque.stop()
-	if is_instance_valid(zona_deteccion):
-		zona_deteccion.queue_free() 
+	if is_instance_valid(zona_deteccion): zona_deteccion.queue_free() 
 	
 	await get_tree().create_timer(3.0).timeout
 	queue_free()
@@ -271,7 +254,6 @@ func morir() -> void:
 # =========================================================
 # SEÑALES DEL RADAR
 # =========================================================
-
 func _on_jugador_detectado(body: Node3D) -> void:
 	if body.is_in_group("Player") and estado_actual != Estado.MAREADO:
 		objetivo = body

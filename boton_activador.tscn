@@ -1,0 +1,31 @@
+[gd_scene format=3 uid="uid://dvxpkk46c3u1s"]
+
+[ext_resource type="Script" uid="uid://dmyxpf8k27lne" path="res://boton_activador.gd" id="1_kv3hr"]
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_vti7m"]
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_kv3hr"]
+height = 0.16210938
+radius = 1.8007813
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_arn2r"]
+height = 0.27270508
+radius = 1.7587891
+
+[node name="BotonActivador" type="StaticBody3D" unique_id=1643711693]
+script = ExtResource("1_kv3hr")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1364620540]
+transform = Transform3D(3.6022363, 0, 0, 0, 0.08333044, 0, 0, 0, 3.6022363, 0, 0, 0)
+mesh = SubResource("CylinderMesh_vti7m")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1601667959]
+shape = SubResource("CylinderShape3D_kv3hr")
+
+[node name="SensorPisotada" type="Area3D" parent="." unique_id=274252563]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="SensorPisotada" unique_id=649584360]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.059692383, 0)
+shape = SubResource("CylinderShape3D_arn2r")
+
+[node name="TimerPlataformas" type="Timer" parent="." unique_id=1758873093]

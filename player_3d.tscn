@@ -1,8 +1,10 @@
 [gd_scene format=3 uid="uid://c6r2al4rtg5j2"]
 
 [ext_resource type="Script" uid="uid://cpp72l3qjdxbi" path="res://player_3d.gd" id="1_3swsy"]
-[ext_resource type="PackedScene" uid="uid://jmesn8xvarfc" path="res://Sophia_Skin.blend" id="1_5wjm4"]
-[ext_resource type="PackedScene" uid="uid://dakxl2dw6gonl" path="res://hud_zelda.tscn" id="3_vrjnx"]
+[ext_resource type="PackedScene" uid="uid://bptmcetq73iod" path="res://Sophia_Skin.blend" id="1_5wjm4"]
+[ext_resource type="Script" uid="uid://ccm7o5s1bywl" path="res://camara_inteligente.gd" id="3_bp1xh"]
+[ext_resource type="PackedScene" uid="uid://dp1ybwdkied55" path="res://hud_alpargatas.tscn" id="3_vrjnx"]
+[ext_resource type="PackedScene" uid="uid://beoa4tsig6bq3" path="res://pantalla_muerte.tscn" id="5_dulx6"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_3swsy"]
 radius = 0.2211914
@@ -13,10 +15,27 @@ height = 1.0737305
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_vrjnx"]
 height = 1.0
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_vrjnx"]
+size = Vector3(1.0107422, 1.0029297, 0.59936523)
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_vrjnx"]
+height = 0.28710938
+radius = 0.6723633
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_bp1xh"]
+size = Vector3(0.40844727, 1.5114746, 1.3027344)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_dulx6"]
+size = Vector3(0.5810547, 0.3095703, 1)
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_dulx6"]
+height = 1.0316772
+radius = 0.4946289
+
 [node name="Player3D" type="CharacterBody3D" unique_id=299683096]
 script = ExtResource("1_3swsy")
 
-[node name="Sophia_Skin" parent="." unique_id=1391162836 instance=ExtResource("1_5wjm4")]
+[node name="Sophia_Skin" parent="." unique_id=1414084755 instance=ExtResource("1_5wjm4")]
 unique_name_in_owner = true
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=325541410]
@@ -25,12 +44,15 @@ shape = SubResource("CapsuleShape3D_3swsy")
 
 [node name="CameraPivot" type="Node3D" parent="." unique_id=1040400665]
 unique_name_in_owner = true
-transform = Transform3D(1, 0, 0, 0, 0.9781476, -0.2079117, 0, 0.2079117, 0.9781476, 0, 0.80107796, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5074412, 0)
+script = ExtResource("3_bp1xh")
 
 [node name="SpringArm3D" type="SpringArm3D" parent="CameraPivot" unique_id=1539031450]
 transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, 0, 0)
 shape = SubResource("SphereShape3D_3swsy")
-spring_length = 2.5
+spring_length = 6.0
+margin = 0.2
+collision_mask = 1
 
 [node name="Camera3D" type="Camera3D" parent="CameraPivot/SpringArm3D" unique_id=934951864]
 unique_name_in_owner = true
@@ -40,4 +62,33 @@ unique_name_in_owner = true
 shape = SubResource("CapsuleShape3D_vrjnx")
 target_position = Vector3(0, 0.5, 0)
 
-[node name="HUD_Zelda" parent="." unique_id=1789134384 instance=ExtResource("3_vrjnx")]
+[node name="HUD_Zelda" parent="." unique_id=1299572561 instance=ExtResource("3_vrjnx")]
+
+[node name="HitboxGolpe" type="Area3D" parent="." unique_id=2024339749]
+
+[node name="ShapeAdelante" type="CollisionShape3D" parent="HitboxGolpe" unique_id=1360979270]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5505562, 0.27706194)
+visible = false
+shape = SubResource("BoxShape3D_vrjnx")
+
+[node name="ShapeGiroPiso" type="CollisionShape3D" parent="HitboxGolpe" unique_id=593056068]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.17766833, 0)
+visible = false
+shape = SubResource("CylinderShape3D_vrjnx")
+
+[node name="ShapeGiroVertical" type="CollisionShape3D" parent="HitboxGolpe" unique_id=1402418769]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.535702, -0.09406996)
+visible = false
+shape = SubResource("BoxShape3D_bp1xh")
+
+[node name="ShapePisoton" type="CollisionShape3D" parent="HitboxGolpe" unique_id=1326900292]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.08616328)
+visible = false
+shape = SubResource("BoxShape3D_dulx6")
+
+[node name="ShapeKickspin" type="CollisionShape3D" parent="HitboxGolpe" unique_id=979103937]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.55307007, 0)
+visible = false
+shape = SubResource("CylinderShape3D_dulx6")
+
+[node name="PantallaMuerte" parent="." unique_id=713978463 instance=ExtResource("5_dulx6")]

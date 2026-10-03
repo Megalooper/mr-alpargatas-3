@@ -1,0 +1,132 @@
+[gd_scene format=3 uid="uid://8m6lbiglmxin"]
+
+[ext_resource type="Texture2D" uid="uid://dn8cy1ivlrex7" path="res://Logo_V1_Blanco.png" id="1_gmcsc"]
+[ext_resource type="Script" uid="uid://b0qi6wqeoodq8" path="res://menu_principal.gd" id="1_ul6ys"]
+[ext_resource type="PackedScene" uid="uid://dws0k4sqt72ty" path="res://level.tscn" id="2_ns3he"]
+[ext_resource type="Texture2D" uid="uid://crhh5fxc2o1or" path="res://Iniciar.png" id="4_611wp"]
+[ext_resource type="PackedScene" uid="uid://duyoklmtksc28" path="res://panel_opciones.tscn" id="5_fa1tu"]
+[ext_resource type="Texture2D" uid="uid://cnq48x7d84p86" path="res://Opciones.png" id="5_xpioy"]
+[ext_resource type="AudioStream" uid="uid://chmirq86oavb0" path="res://Ascent_to_the_Clouds.mp3" id="6_a6518"]
+[ext_resource type="Texture2D" uid="uid://gubh7201jjr2" path="res://Salir.png" id="6_kni6g"]
+[ext_resource type="Texture2D" uid="uid://bf3efn35c37bj" path="res://yellowing.png" id="9_611wp"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xpioy"]
+bg_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 200
+corner_radius_top_right = 200
+corner_radius_bottom_right = 200
+corner_radius_bottom_left = 200
+
+[node name="MenuPrincipal" type="Control" unique_id=636054070]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_ul6ys")
+
+[node name="SubViewportContainer" type="SubViewportContainer" parent="." unique_id=2087499649]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+stretch = true
+
+[node name="SubViewport" type="SubViewport" parent="SubViewportContainer" unique_id=1288453160]
+handle_input_locally = false
+size = Vector2i(1920, 1080)
+render_target_update_mode = 4
+
+[node name="Node3D" parent="SubViewportContainer/SubViewport" unique_id=79042575 instance=ExtResource("2_ns3he")]
+
+[node name="PivoteCamara" type="Node3D" parent="SubViewportContainer/SubViewport" unique_id=87804468]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 162.49994, 280.67255)
+
+[node name="Camera3D" type="Camera3D" parent="SubViewportContainer/SubViewport/PivoteCamara" unique_id=92421302]
+transform = Transform3D(1, 0, 0, 0, 0.97098005, 0.23916054, 0, -0.23916054, 0.97098005, 0, 37.60025, 188.01727)
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1887434421]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.46666667, 1, 1, 0.26666668)
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=1917271790]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="LogoV1Blanco" type="Sprite2D" parent="." unique_id=1546996513]
+position = Vector2(466, 203)
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("1_gmcsc")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=1188562803]
+layout_mode = 0
+offset_left = 120.0
+offset_top = 373.0
+offset_right = 420.0
+offset_bottom = 593.0
+theme_override_constants/separation = 20
+
+[node name="BtnInicio" type="TextureButton" parent="VBoxContainer" unique_id=84923158]
+custom_minimum_size = Vector2(300, 100)
+layout_mode = 2
+texture_normal = ExtResource("4_611wp")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="BtnOpciones" type="TextureButton" parent="VBoxContainer" unique_id=743846153]
+custom_minimum_size = Vector2(300, 100)
+layout_mode = 2
+texture_normal = ExtResource("5_xpioy")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="BtnSalir" type="TextureButton" parent="." unique_id=593550071]
+custom_minimum_size = Vector2(300, 100)
+layout_mode = 0
+offset_left = 110.0
+offset_top = 648.0
+offset_right = 410.0
+offset_bottom = 748.0
+texture_normal = ExtResource("6_kni6g")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="Panel" type="Panel" parent="." unique_id=247251270]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 0
+offset_left = 1141.0
+offset_top = 656.0
+offset_right = 1241.0
+offset_bottom = 756.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_xpioy")
+
+[node name="Logo" type="TextureRect" parent="Panel" unique_id=1327215569]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 0
+offset_right = 100.0
+offset_bottom = 100.0
+texture = ExtResource("9_611wp")
+expand_mode = 1
+
+[node name="PanelOpciones" parent="." unique_id=926891616 instance=ExtResource("5_fa1tu")]
+visible = false
+layout_mode = 1
+offset_top = 0.0
+offset_bottom = 0.0
+
+[node name="MusicaMenu" type="AudioStreamPlayer" parent="." unique_id=1623179]
+stream = ExtResource("6_a6518")
+autoplay = true
+
+[connection signal="pressed" from="VBoxContainer/BtnInicio" to="." method="_on_btn_inicio_pressed"]
+[connection signal="pressed" from="VBoxContainer/BtnOpciones" to="." method="_on_btn_opciones_pressed"]
+[connection signal="pressed" from="BtnSalir" to="." method="_on_btn_salir_pressed"]

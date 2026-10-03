@@ -4,6 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://br145736kurxr" path="res://sapo_spawner.tscn" id="4_0b4ue"]
 [ext_resource type="PackedScene" uid="uid://bkgdes13henk6" path="res://sapo_mago.tscn" id="5_1ainy"]
 [ext_resource type="PackedScene" uid="uid://cg0jveohgfiww" path="res://checkpoint.tscn" id="5_f2txt"]
+[ext_resource type="PackedScene" uid="uid://dywaj1bsprqmw" path="res://menu_pausa.tscn" id="6_1ainy"]
 [ext_resource type="PackedScene" uid="uid://dhfrmxrfdv6xa" path="res://mapa.tscn" id="7_n6hdu"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_u52ul"]
@@ -42,7 +43,7 @@ shadow_enabled = true
 environment = SubResource("Environment_oi3di")
 
 [node name="mapa" parent="." unique_id=1399095319 instance=ExtResource("7_n6hdu")]
-transform = Transform3D(0.6, 0, 0, 0, 0.6, 0, 0, 0, 0.6, 4.3520527, 0, 20.521)
+transform = Transform3D(0.6, 0, 0, 0, 0.6, 0, 0, 0, 0.6, 4.145693, 0.44889832, 20.512882)
 
 [node name="SapoSpawner" parent="." unique_id=1186680314 node_paths=PackedStringArray("jugador") instance=ExtResource("4_0b4ue")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.374281, 0.57896996, 107.44109)
@@ -77,4 +78,9 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 121, 56, 251)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 107, 90, 340)
 
 [node name="Player3D" parent="." unique_id=299683096 groups=["Player"] instance=ExtResource("1_u52ul")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.458695, 0.045850478, 21.050686)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.14, 0.9841723, 20.5)
+
+[node name="SapoMago2" parent="." unique_id=883638190 instance=ExtResource("5_1ainy")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 23.536465, 15.495752, 36.734093)
+
+[node name="MenuPausa" parent="." unique_id=1441209906 instance=ExtResource("6_1ainy")]

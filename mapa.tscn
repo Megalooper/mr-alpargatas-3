@@ -3,6 +3,8 @@
 [ext_resource type="Texture2D" uid="uid://bfcuk6aoovhpt" path="res://mapa_Icon renacuajos.png" id="1_2jh14"]
 [ext_resource type="Script" uid="uid://x6pjxmfy5bop" path="res://plataforma_movil.gd" id="2_70f7c"]
 [ext_resource type="Script" uid="uid://bmvdw5pvdlfe2" path="res://plataforma_trampa.gd" id="3_q8ihy"]
+[ext_resource type="PackedScene" uid="uid://ob6b20f38hyj" path="res://plataforma_expansible.tscn" id="4_lrjei"]
+[ext_resource type="PackedScene" uid="uid://dvxpkk46c3u1s" path="res://boton_activador.tscn" id="5_5d3jg"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_a4asv"]
 resource_name = "Material_Rocas_Gris 1"
@@ -1083,93 +1085,6 @@ _surfaces = [{
 }]
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_nati7")
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_jfvdj"]
-
-[sub_resource type="ArrayMesh" id="ArrayMesh_jfvdj"]
-_surfaces = [{
-"aabb": AABB(-1, -1, -1, 2, 2, 5.0864472),
-"format": 34359742465,
-"index_count": 60,
-"index_data": PackedByteArray("CAABAAkABAAJAAEAAwAEAAEACAADAAEAAwAHAAQACQAAAAgAAwAKAAcAAwAIAAoABwALAAQABAALAAkABwAKAAsACAAAAAUACAAFAAoACQACAAAACwACAAkABQAAAAIACgAGAAsACgAFAAYACwAGAAIABQACAAYA"),
-"lods": [0.00091954734, PackedByteArray("AAABAAIAAAADAAEABAACAAEAAwAEAAEABQAAAAIAAwAAAAUABAAGAAIABQACAAYABQAGAAQAAwAHAAQABwAFAAQAAwAFAAcA")],
-"name": "Material_Rojo",
-"primitive": 3,
-"uv_scale": Vector4(0, 0, 0, 0),
-"vertex_count": 12,
-"vertex_data": PackedByteArray("AACAvwAAgL8txIJAAACAvwAAgD8AAIC/AACAvwAAgD8txIJAAACAvwAAgL8AAIC/AACAPwAAgD8AAIC/AACAPwAAgL8txIJAAACAPwAAgD8txIJAAACAPwAAgL8AAIC/AACAvwAAgL/0pgJAAACAvwAAgD/0pgJAAACAPwAAgL/0pgJAAACAPwAAgD/0pgJA")
-}]
-blend_shape_mode = 0
-
-[sub_resource type="ArrayMesh" id="ArrayMesh_l7hfp"]
-resource_name = "mapa_Cube_022"
-_surfaces = [{
-"aabb": AABB(-1, -1, -1, 2, 2, 2),
-"format": 34896613377,
-"index_count": 36,
-"index_data": PackedByteArray("AAABAAIAAAADAAEABAACAAEAAwAEAAEABQAAAAIAAwAAAAUABAAGAAIABQACAAYAAwAHAAQAAwAFAAcABwAGAAQABwAFAAYA"),
-"primitive": 3,
-"uv_scale": Vector4(0, 0, 0, 0),
-"vertex_count": 8,
-"vertex_data": PackedByteArray("AAAAAP//AAAAAP//AAAAAAAA/////wAAAAAAAAAAAAD/////AAAAAP//AAD//wAA////////AAD//wAAAAAAAA==")
-}]
-blend_shape_mode = 0
-shadow_mesh = SubResource("ArrayMesh_jfvdj")
-
-[sub_resource type="ArrayMesh" id="ArrayMesh_o7yoh"]
-resource_name = "mapa_Cube_035"
-_surfaces = [{
-"aabb": AABB(-1, -1, -1, 2, 2, 2),
-"attribute_data": PackedByteArray("/1////+f/7//n////1//v/9f/7//n/9//5//v/9f/3//X/9//5//P/+f/3//X/8//1//P/+fAAD/n/8//18AAP8f/3//X/8//1//f/8f/z//n/9//9//P//f/3//n/8/"),
-"format": 34896613399,
-"index_count": 36,
-"index_data": PackedByteArray("AAABAAIAAAADAAEABAAFAAYABAAHAAUACAAJAAoACAALAAkADAANAA4ADAAPAA0AEAARABIAEAATABEAFAAVABYAFAAXABUA"),
-"material": SubResource("StandardMaterial3D_jfvdj"),
-"primitive": 3,
-"uv_scale": Vector4(0, 0, 0, 0),
-"vertex_count": 24,
-"vertex_data": PackedByteArray("AAAAAP//VNUAAP//AABU1QAA/////1TVAAAAAAAAVNUAAAAAAAD///////8AAP//AAD//wAA/////wAAAAD/////AAAAAFTV////////VNX/////AABU1f//AAD//1TV//8AAP///78AAP//////v/////////+/AAAAAP///78AAAAAAAD/v///AAD///+///8AAAAA/78AAAAA////v/////8AAP//AAD///////8AAP//AAD/////////////VNVU1VTVVNVU1VTVVNVU1f+//7//v/+//7//v/+//7+qKqoqqiqqKqoqqiqqKqoq/////////////////////wAA/38AAP9/AAD/fwAA/3//f/+//3//v/9//7//f/+/")
-}]
-blend_shape_mode = 0
-shadow_mesh = SubResource("ArrayMesh_l7hfp")
-
-[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_k4701"]
-data = PackedVector3Array(-1, -1, 1, -1, 1, -1, -1, 1, 1, -1, -1, 1, -1, -1, -1, -1, 1, -1, -1, -1, -1, 1, 1, -1, -1, 1, -1, -1, -1, -1, 1, -1, -1, 1, 1, -1, 1, -1, -1, 1, 1, 1, 1, 1, -1, 1, -1, -1, 1, -1, 1, 1, 1, 1, 1, -1, 1, -1, 1, 1, 1, 1, 1, 1, -1, 1, -1, -1, 1, -1, 1, 1, -1, -1, -1, 1, -1, 1, 1, -1, -1, -1, -1, -1, -1, -1, 1, 1, -1, 1, 1, 1, -1, -1, 1, 1, -1, 1, -1, 1, 1, -1, 1, 1, 1, -1, 1, 1)
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_flue8"]
-
-[sub_resource type="ArrayMesh" id="ArrayMesh_57wn5"]
-_surfaces = [{
-"aabb": AABB(-1, -1, -1, 2, 2, 2),
-"format": 34896613377,
-"index_count": 36,
-"index_data": PackedByteArray("AAABAAIAAAADAAEABAACAAEAAwAEAAEABQAAAAIAAwAAAAUABAAGAAIABQACAAYAAwAHAAQAAwAFAAcABwAGAAQABwAFAAYA"),
-"primitive": 3,
-"uv_scale": Vector4(0, 0, 0, 0),
-"vertex_count": 8,
-"vertex_data": PackedByteArray("AAAAAP//AAAAAP//AAAAAAAA/////wAAAAAAAAAAAAD/////AAAAAP//AAD//wAA////////AAD//wAAAAAAAA==")
-}]
-blend_shape_mode = 0
-
-[sub_resource type="ArrayMesh" id="ArrayMesh_lu0fl"]
-resource_name = "mapa_Cube_036"
-_surfaces = [{
-"aabb": AABB(-1, -1, -1, 2, 2, 2),
-"attribute_data": PackedByteArray("/1////+f/7//n////1//v/9f/7//n/9//5//v/9f/3//X/9//5//P/+f/3//X/8//1//P/+fAAD/n/8//18AAP8f/3//X/8//1//f/8f/z//n/9//9//P//f/3//n/8/"),
-"format": 34896613399,
-"index_count": 36,
-"index_data": PackedByteArray("AAABAAIAAAADAAEABAAFAAYABAAHAAUACAAJAAoACAALAAkADAANAA4ADAAPAA0AEAARABIAEAATABEAFAAVABYAFAAXABUA"),
-"material": SubResource("StandardMaterial3D_flue8"),
-"primitive": 3,
-"uv_scale": Vector4(0, 0, 0, 0),
-"vertex_count": 24,
-"vertex_data": PackedByteArray("AAAAAP//VNUAAP//AABU1QAA/////1TVAAAAAAAAVNUAAAAAAAD///////8AAP//AAD//wAA/////wAAAAD/////AAAAAFTV////////VNX/////AABU1f//AAD//1TV//8AAP///78AAP//////v/////////+/AAAAAP///78AAAAAAAD/v///AAD///+///8AAAAA/78AAAAA////v/////8AAP//AAD///////8AAP//AAD/////////////VNVU1VTVVNVU1VTVVNVU1f+//7//v/+//7//v/+//7+qKqoqqiqqKqoqqiqqKqoq/////////////////////wAA/38AAP9/AAD/fwAA/3//f/+//3//v/9//7//f/+/")
-}]
-blend_shape_mode = 0
-shadow_mesh = SubResource("ArrayMesh_57wn5")
-
-[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_jsu5s"]
-data = PackedVector3Array(-1, -1, 1, -1, 1, -1, -1, 1, 1, -1, -1, 1, -1, -1, -1, -1, 1, -1, -1, -1, -1, 1, 1, -1, -1, 1, -1, -1, -1, -1, 1, -1, -1, 1, 1, -1, 1, -1, -1, 1, 1, 1, 1, 1, -1, 1, -1, -1, 1, -1, 1, 1, 1, 1, 1, -1, 1, -1, 1, 1, 1, 1, 1, 1, -1, 1, -1, -1, 1, -1, 1, 1, -1, -1, -1, 1, -1, 1, 1, -1, -1, -1, -1, -1, -1, -1, 1, 1, -1, 1, 1, 1, -1, -1, 1, 1, -1, 1, -1, 1, 1, -1, 1, 1, 1, -1, 1, 1)
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_niwi8"]
 _surfaces = [{
@@ -9331,26 +9246,6 @@ shape = SubResource("ConcavePolygonShape3D_log2u")
 transform = Transform3D(0.99999994, 0, 0, 0, 0.99999994, 0, 0, 0, 0.99999994, 0, 0, 0)
 mesh = SubResource("ArrayMesh_8xfoe")
 
-[node name="Cube_038" type="MeshInstance3D" parent="." unique_id=2085988875]
-transform = Transform3D(0, 0, -1.1302409, 0, 1, 0, 16.189476, 0, 0, 32.847202, 188.38821, 596.6099)
-mesh = SubResource("ArrayMesh_o7yoh")
-metadata/_edit_group_ = true
-
-[node name="StaticBody3D" type="StaticBody3D" parent="Cube_038" unique_id=942398039]
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Cube_038/StaticBody3D" unique_id=167137734]
-shape = SubResource("ConcavePolygonShape3D_k4701")
-
-[node name="Cube_039" type="MeshInstance3D" parent="." unique_id=1238072904]
-transform = Transform3D(0, 0, -1.1302409, 0, 1, 0, 16.189476, 0, 0, 3.639019, 202.99231, 609.12585)
-mesh = SubResource("ArrayMesh_lu0fl")
-metadata/_edit_group_ = true
-
-[node name="StaticBody3D" type="StaticBody3D" parent="Cube_039" unique_id=1020199393]
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Cube_039/StaticBody3D" unique_id=1519691678]
-shape = SubResource("ConcavePolygonShape3D_jsu5s")
-
 [node name="Cube_040" type="MeshInstance3D" parent="." unique_id=1682382114]
 transform = Transform3D(0, 0, -1.1302409, 0, 1, 0, 16.189476, 0, 0, -15.054218, 219.93306, 596.6099)
 mesh = SubResource("ArrayMesh_0lv4e")
@@ -10409,3 +10304,62 @@ metadata/_edit_group_ = true
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Montana 8_001/StaticBody3D" unique_id=1550874753]
 shape = SubResource("ConcavePolygonShape3D_5qnie")
+
+[node name="PlataformaExpansible2" parent="." unique_id=429135155 instance=ExtResource("4_lrjei")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -13.591394, 2.2057037, 20.372175)
+escala_expandida = Vector3(8, 1, 2)
+
+[node name="PlataformaExpansible" parent="." unique_id=298976697 instance=ExtResource("4_lrjei")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 34.857567, 188.83592, 612.6477)
+escala_expandida = Vector3(2, 1, 10)
+
+[node name="PlataformaExpansible3" parent="." unique_id=1977552433 instance=ExtResource("4_lrjei")]
+transform = Transform3D(0.9999428, 0, -0.010698711, 0, 1, 0, 0.010698711, 0, 0.9999428, 14.296116, 196.27892, 612.6477)
+escala_expandida = Vector3(2, 1, 10)
+
+[node name="Plataforma5" type="MeshInstance3D" parent="." unique_id=2048137171]
+transform = Transform3D(0, 0, 3.5324771, 0, 1.4323603, 0, -2.7950718, 0, 0, 14.2, 205.5809, 634.19696)
+mesh = SubResource("ArrayMesh_g4akc")
+metadata/_edit_group_ = true
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Plataforma5" unique_id=1715747053]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Plataforma5/StaticBody3D" unique_id=292613009]
+shape = SubResource("ConcavePolygonShape3D_hmtrj")
+
+[node name="BotonActivador" parent="." unique_id=1643711693 node_paths=PackedStringArray("plataformas_asignadas") instance=ExtResource("5_5d3jg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.629842, 206.24455, 634.4722)
+plataformas_asignadas = [NodePath("../PlataformaExpansible4"), NodePath("../PlataformaExpansible5"), NodePath("../PlataformaExpansible6"), NodePath("../PlataformaExpansible7")]
+tiempo_activo = 10.0
+
+[node name="PlataformaExpansible4" parent="." unique_id=1241019885 instance=ExtResource("4_lrjei")]
+transform = Transform3D(-0.6167749, 0, -0.7871396, 0, 1, 0, 0.7871396, 0, -0.6167749, 5.705139, 205.09288, 628.4395)
+escala_expandida = Vector3(5, 1, 2)
+
+[node name="PlataformaExpansible5" parent="." unique_id=1298366824 instance=ExtResource("4_lrjei")]
+transform = Transform3D(-0.6167749, 0, -0.7871396, 0, 1, 0, 0.7871396, 0, -0.6167749, -0.20285034, 207.72336, 623.8908)
+escala_expandida = Vector3(5, 1, 2)
+
+[node name="PlataformaExpansible6" parent="." unique_id=85638763 instance=ExtResource("4_lrjei")]
+transform = Transform3D(-0.6167749, 0, -0.7871396, 0, 1, 0, 0.7871396, 0, -0.6167749, -4.886367, 211.79958, 620.1794)
+escala_expandida = Vector3(5, 1, 2)
+
+[node name="PlataformaExpansible7" parent="." unique_id=1434830096 instance=ExtResource("4_lrjei")]
+transform = Transform3D(-0.6167749, 0, -0.7871396, 0, 1, 0, 0.7871396, 0, -0.6167749, -12.260571, 214.81139, 615.45245)
+escala_expandida = Vector3(5, 1, 5)
+
+[node name="PlataformaExpansible8" parent="." unique_id=1787518808 instance=ExtResource("4_lrjei")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -25.636028, 220.54163, 592.38104)
+escala_expandida = Vector3(2, 1, 5)
+
+[node name="PlataformaExpansible9" parent="." unique_id=368276994 instance=ExtResource("4_lrjei")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -27.586254, 223.71535, 600.61035)
+escala_expandida = Vector3(2, 1, 5)
+
+[node name="PlataformaExpansible10" parent="." unique_id=1311609988 instance=ExtResource("4_lrjei")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -30.285294, 226.41876, 605.0734)
+escala_expandida = Vector3(2, 1, 5)
+
+[node name="PlataformaExpansible11" parent="." unique_id=1430407483 instance=ExtResource("4_lrjei")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -29.62767, 228.86942, 593.0867)
+escala_expandida = Vector3(2, 1, 5)

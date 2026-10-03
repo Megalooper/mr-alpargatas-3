@@ -1,0 +1,79 @@
+[gd_scene format=3 uid="uid://beoa4tsig6bq3"]
+
+[ext_resource type="Script" uid="uid://c4oju6yitcgii" path="res://pantalla_muerte.gd" id="1_a6fp2"]
+[ext_resource type="FontFile" uid="uid://dkpwy17q82lyg" path="res://Saira[wdth,wght].ttf" id="2_rgkrc"]
+
+[sub_resource type="FontVariation" id="FontVariation_5pdbk"]
+base_font = ExtResource("2_rgkrc")
+variation_opentype = {
+2003072104: 100,
+2003265652: 900
+}
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_jqyuf"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_pw3pv"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_vnidk"]
+
+[node name="PantallaMuerte" type="CanvasLayer" unique_id=713978463]
+process_mode = 3
+script = ExtResource("1_a6fp2")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1978925408]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.5411765)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ColorRect" unique_id=1655857027]
+layout_mode = 0
+offset_left = 563.0
+offset_top = 353.0
+offset_right = 603.0
+offset_bottom = 393.0
+
+[node name="BtnCheckpoint" type="Button" parent="ColorRect/VBoxContainer" unique_id=935262757]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.72156864, 0.47843137, 0.3137255, 1)
+theme_override_colors/font_hover_color = Color(0.8889366, 0.672052, 0.5311948, 1)
+theme_override_colors/font_outline_color = Color(0.44313726, 0.28627452, 0.15294118, 1)
+theme_override_constants/outline_size = 10
+theme_override_fonts/font = SubResource("FontVariation_5pdbk")
+theme_override_font_sizes/font_size = 30
+theme_override_styles/normal = SubResource("StyleBoxEmpty_jqyuf")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_pw3pv")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_vnidk")
+text = "Revivir en Checkpoint"
+
+[node name="BtnInicio" type="Button" parent="ColorRect/VBoxContainer" unique_id=1918708774]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.72156864, 0.47843137, 0.3137255, 1)
+theme_override_colors/font_hover_color = Color(0.8889366, 0.672052, 0.5311948, 1)
+theme_override_colors/font_outline_color = Color(0.44313726, 0.28627452, 0.15294118, 1)
+theme_override_constants/outline_size = 10
+theme_override_fonts/font = SubResource("FontVariation_5pdbk")
+theme_override_font_sizes/font_size = 30
+theme_override_styles/normal = SubResource("StyleBoxEmpty_jqyuf")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_pw3pv")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_vnidk")
+text = "Reiniciar Nivel"
+
+[node name="BtnMenu" type="Button" parent="ColorRect/VBoxContainer" unique_id=959221709]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.72156864, 0.47843137, 0.3137255, 1)
+theme_override_colors/font_hover_color = Color(0.8889366, 0.672052, 0.5311948, 1)
+theme_override_colors/font_outline_color = Color(0.44313726, 0.28627452, 0.15294118, 1)
+theme_override_constants/outline_size = 10
+theme_override_fonts/font = SubResource("FontVariation_5pdbk")
+theme_override_font_sizes/font_size = 30
+theme_override_styles/normal = SubResource("StyleBoxEmpty_jqyuf")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_pw3pv")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_vnidk")
+text = "Volver al Menu Principal"
+
+[connection signal="pressed" from="ColorRect/VBoxContainer/BtnCheckpoint" to="." method="_on_btn_checkpoint_pressed"]
+[connection signal="pressed" from="ColorRect/VBoxContainer/BtnInicio" to="." method="_on_btn_inicio_pressed"]
+[connection signal="pressed" from="ColorRect/VBoxContainer/BtnMenu" to="." method="_on_btn_menu_pressed"]
