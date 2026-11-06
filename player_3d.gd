@@ -154,7 +154,12 @@ var _gp_fail_safe_timer := 0
 @onready var _shape_giro_vertical: CollisionShape3D = $HitboxGolpe/ShapeGiroVertical
 @onready var _shape_pisoton: CollisionShape3D = $HitboxGolpe/ShapePisoton
 @onready var _shape_kickspin: CollisionShape3D = $HitboxGolpe/ShapeKickspin
-
+# ======================
+# SISTEMA DE SECUESTRO (CATCHER)
+# ======================
+var _secuestrador_actual: Node3D = null
+var _masheo_secuestro := 0
+const MASHEO_REQUERIDO := 10 # Las veces que tienes que machacar el botón
 # ======================
 # READY
 # ======================
@@ -195,6 +200,25 @@ func _apagar_hitboxes() -> void:
 # INPUT
 # ======================
 func _input(event: InputEvent) -> void:
+		# --- ESCAPE DE SECUESTRO ---
+	if _secuestrador_actual != null:
+		# Si presionas el botón de ataque, salto o patada, suma al contador
+		if event.is_action_pressed("kick") or event.is_action_pressed("jump") or event.is_action_pressed("kickspin"):
+			_masheo_secuestro += 1
+			print("Forcejeando: ", _masheo_secuestro) # El chismoso para la consola
+			
+			# Efecto visual de forcejeo (vibra un poquito)
+			_skin.position.x = randf_range(-0.1, 0.1)
+			_skin.position.z = randf_range(-0.1, 0.1)
+			
+			# Bajamos a 5 para hacer la prueba de que sí funciona
+			if _masheo_secuestro >= 5: 
+				print("¡TE SOLTASTE!")
+				if _secuestrador_actual.has_method("soltar_por_forcejeo"):
+					_secuestrador_actual.soltar_por_forcejeo()
+				_skin.position = Vector3.ZERO
+				_masheo_secuestro = 0
+		return # Evita que haga otras acciones mientras está agarrado
 	if _respawn_lock_frames > 0 or _is_dead: return
 		
 	if event is InputEventKey and event.keycode == KEY_R and event.pressed:
@@ -258,6 +282,8 @@ func _input(event: InputEvent) -> void:
 			_terminar_combo(false)
 			_kick_is_from_crouch_cancel = false
 			_start_ground_pound()
+			
+	
 
 # ======================
 # KICK ACTIONS
@@ -994,3 +1020,36 @@ func take_damage(amount: int, push_dir: Vector3) -> void:
 		_is_kickspinning = false
 		_gp_state = 0
 		_anim_player.play("hitstun", 0.1)
+		
+
+func ser_secuestrado(catcher_node: Node3D) -> void:
+	_secuestrador_actual = catcher_node
+	_apagar_hitboxes()
+	_terminar_combo(false)
+	_is_kickspinning = false
+	_gp_state = 0
+	
+	set_physics_process(false) 
+	_anim_player.play("grabbed", 0.1)
+	
+	# FIX ASESINO DE SAPOS: Apagamos tu colisión principal temporalmente 
+	# (se usa set_deferred porque no puedes apagar colisiones en medio del cálculo de físicas)
+	_collision_shape.set_deferred("disabled", true)
+
+func ser_lanzado(fuerza_vuelo: Vector3) -> void:
+	_secuestrador_actual = null
+	set_physics_process(true)
+	_collision_shape.set_deferred("disabled", false)
+	
+	rotation = Vector3.ZERO 
+	_skin.rotation.x = 0
+	_skin.rotation.z = 0
+	
+	velocity = fuerza_vuelo
+	_last_movement_direction = Vector3(fuerza_vuelo.x, 0, fuerza_vuelo.z).normalized()
+	
+	_is_air_anim_active = true
+	_anim_player.play("longjump", 0.1)
+	
+	# LA CURA: Lo "aturdimos" 0.8 segundos para que el script de caminar no cancele el vuelo
+	_invulnerability_timer = 0.8

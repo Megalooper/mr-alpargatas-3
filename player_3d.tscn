@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://c6r2al4rtg5j2"]
 
 [ext_resource type="Script" uid="uid://cpp72l3qjdxbi" path="res://player_3d.gd" id="1_3swsy"]
-[ext_resource type="PackedScene" uid="uid://bptmcetq73iod" path="res://Sophia_Skin.blend" id="1_5wjm4"]
+[ext_resource type="PackedScene" uid="uid://bsdhy7qf07bdw" path="res://Sophia_Skin.blend" id="1_5wjm4"]
 [ext_resource type="Script" uid="uid://ccm7o5s1bywl" path="res://camara_inteligente.gd" id="3_bp1xh"]
 [ext_resource type="PackedScene" uid="uid://dp1ybwdkied55" path="res://hud_alpargatas.tscn" id="3_vrjnx"]
 [ext_resource type="PackedScene" uid="uid://beoa4tsig6bq3" path="res://pantalla_muerte.tscn" id="5_dulx6"]
@@ -52,7 +52,6 @@ transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, 0
 shape = SubResource("SphereShape3D_3swsy")
 spring_length = 6.0
 margin = 0.2
-collision_mask = 1
 
 [node name="Camera3D" type="Camera3D" parent="CameraPivot/SpringArm3D" unique_id=934951864]
 unique_name_in_owner = true
@@ -65,6 +64,7 @@ target_position = Vector3(0, 0.5, 0)
 [node name="HUD_Zelda" parent="." unique_id=1299572561 instance=ExtResource("3_vrjnx")]
 
 [node name="HitboxGolpe" type="Area3D" parent="." unique_id=2024339749]
+visible = false
 
 [node name="ShapeAdelante" type="CollisionShape3D" parent="HitboxGolpe" unique_id=1360979270]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5505562, 0.27706194)
