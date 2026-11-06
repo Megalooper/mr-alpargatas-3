@@ -5,7 +5,9 @@
 [ext_resource type="PackedScene" uid="uid://bkgdes13henk6" path="res://sapo_mago.tscn" id="5_1ainy"]
 [ext_resource type="PackedScene" uid="uid://cg0jveohgfiww" path="res://checkpoint.tscn" id="5_f2txt"]
 [ext_resource type="PackedScene" uid="uid://dywaj1bsprqmw" path="res://menu_pausa.tscn" id="6_1ainy"]
+[ext_resource type="PackedScene" uid="uid://e6sxiam717nf" path="res://catcher.tscn" id="7_km5ld"]
 [ext_resource type="PackedScene" uid="uid://dhfrmxrfdv6xa" path="res://mapa.tscn" id="7_n6hdu"]
+[ext_resource type="PackedScene" uid="uid://ew2dn8oqfnef" path="res://libelula.tscn" id="8_km5ld"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_u52ul"]
 sky_top_color = Color(0.42298323, 0.265828, 1, 1)
@@ -80,7 +82,16 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 107, 90, 340)
 [node name="Player3D" parent="." unique_id=299683096 groups=["Player"] instance=ExtResource("1_u52ul")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.14, 0.9841723, 20.5)
 
-[node name="SapoMago2" parent="." unique_id=883638190 instance=ExtResource("5_1ainy")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 23.536465, 15.495752, 36.734093)
-
 [node name="MenuPausa" parent="." unique_id=1441209906 instance=ExtResource("6_1ainy")]
+
+[node name="Catcher" parent="." unique_id=898184684 instance=ExtResource("7_km5ld")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 122.08953, 56.688324, 249.15677)
+
+[node name="Catcher2" parent="." unique_id=465669005 instance=ExtResource("7_km5ld")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 22.691055, 13.251722, 36.83762)
+
+[node name="Catcher3" parent="." unique_id=2082464224 instance=ExtResource("7_km5ld")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 18.239227, 0.27245328, 97.68266)
+
+[node name="libelula" parent="." unique_id=1254299211 instance=ExtResource("8_km5ld")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 63.067352, 22.425152, 170.4545)
